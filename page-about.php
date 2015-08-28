@@ -4,30 +4,30 @@
 get_header();
 ?>
 
-<?php if (is_page(about)){ 
-if(have_posts()) :
-  while(have_posts()) : the_post();  
-  ?>
 <div class="about">
   <div class="midpage">
-    <div class="page_title">
-       <h1><?php $title= get_the_title();
-              $title= ucfirst(strtolower($title));
-              print $title;
-               ?></h1>
-       <?php the_content();
+  <?php
+  if(have_posts()):
+    while(have_posts()):
+      the_post();
+      $title = get_the_title();
+      $title = ucfirst(strtolower($title));
+      ?>
+          <div class="page_title">
+            <h1><?php echo $title; ?></h1>
+            <?php the_content(); ?>
+          </div>
+      <?
     endwhile;
-    endif; ?>
-    </div>
+  endif;
 
-
-<?php    
-$args = array( 'post_type' => 'About Us', 'posts_per_page' => 10 );
-$loop = new WP_Query( $args );
-while ( $loop->have_posts() ) : $loop->the_post();
-?>
+  $args = array( 'post_type' => 'About Us', 'posts_per_page' => 10 );
+  $loop = new WP_Query( $args );
+  while ( $loop->have_posts() ):
+    $loop->the_post();
+    ?>
     <div class="about_person">
-    <?php the_post_thumbnail(); ?>
+      <?php the_post_thumbnail(); ?>
       <h3><?php the_title(); ?></h3>
       <?php the_content(); ?>
       <div class="social-media">
@@ -37,14 +37,9 @@ while ( $loop->have_posts() ) : $loop->the_post();
         <div><img src="<?php bloginfo('template_directory'); ?>/Images/linkedin.png" alt=""></div>
       </div>
     </div>
-    <?php 
-endwhile;
-?>
+  <?php endwhile; ?>
+  </div>
 </div>
-</div>
-
-<?php }?>
 
 <?php
 get_footer();
-?>
