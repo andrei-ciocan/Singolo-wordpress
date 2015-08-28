@@ -11,6 +11,7 @@ function Slider() {
     this.$next=$('.slider-container .slider_arrow-right');
     this.$slideContainer= this.$slider.find('.slides');
     this.$slides = this.$slideContainer.find('.slide');
+    this.$slider.css({'width': ''+ this.$slides.length*100+'%' });
     this.$slideLength=this.$slides.length;
     this.width = $(".slides").width()/this.$slideLength;
     this.interval;
@@ -60,16 +61,23 @@ Slider.prototype.slideTransitionLeft = function slideTransitionLeft(callback) {
 }
 
 Slider.prototype.slideTransitionRight = function slideTransitionRight(callback) {
-    if(this.currentSlide != 1)
-    this.$slideContainer.stop().animate({'margin-left': '+='+this.width}, this.animationSpeed, function() {
-        
-        if(this.currentSlide === 1){
-            this.$slideContainer.css('margin-left',5*this.$slideLength);
-        }
-        else
+    if(this.currentSlide === 1)
+        {this.currentSlide=this.$slideLength;
+        this.$slideContainer.css('margin-left',-this.width*(this.$slideLength-1) );
+        this.$slideContainer.stop().animate({'margin-left': '+='+this.width}, this.animationSpeed, function() {
             this.currentSlide--;
         callback();
     }.bind(this));
+
+
+    }
+        else{
+
+    this.$slideContainer.stop().animate({'margin-left': '+='+this.width}, this.animationSpeed, function() {
+            this.currentSlide--;
+        callback();
+    }.bind(this));
+}
 
 }
 

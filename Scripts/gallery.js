@@ -28,7 +28,7 @@
         }
 
         function init_image(){
-            $('.modal').modal_box({
+            $('.modal img').modal_box({
                 image:'<img class="'+imageClass+'"src="'+src+'" alt="">',
             });
 
