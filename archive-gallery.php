@@ -1,25 +1,9 @@
 <?php
-/* Template Name: Portfolio page
-*/
 get_header();
 ?>
 
 <div class="portofolio">
   <div class="midpage">
-  <?php 
-  if(have_posts()) :
-    while(have_posts()) : the_post(); ?>
-      <div class="page_title">
-        <h1><?php $title= get_the_title();
-        $title= ucfirst(strtolower($title));
-        print $title; ?>
-        </h1>
-        <?php the_content(); ?>
-      </div>
-  <?php 
-    endwhile;
-  endif; ?>
-
     <div class="portofolio_projects">
       <div class="portofolio_chooser">
         <div class="all">All</div>

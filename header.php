@@ -14,23 +14,22 @@
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="<?php bloginfo('template_directory'); ?>/Scripts/slider.js"></script>
   <script src="<?php bloginfo('template_directory'); ?>/Scripts/form.validation.js"></script>
-  <script src="<?php bloginfo('template_directory'); ?>/Scripts/gallery.js"></script>
 </head>
 <body <?php body_class(); ?>>
 
-<header>
+  <header>
    <div class="header-menu">
      <div class="content-width">
        <div class="header-menu_logo"><?php bloginfo('name')?><span>*</span></div>
 
-        <ul class="header-menu_container">
-          <?php wp_nav_menu()?>
-          <?php 
-          $args=array(
-              'theme_location' =>'primary');
-              ?>
+       <ul class="header-menu_container">
+        <?php wp_nav_menu()?>
+        <?php 
+        $args=array(
+          'theme_location' =>'primary');
+          ?>
         </ul>
-      
+        
+      </div>
     </div>
-  </div>
-</header>
+  </header>

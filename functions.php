@@ -1,7 +1,7 @@
 <?php
 //add stylesheet
 function styles(){
-wp_enqueue_style('style',get_stylesheet_uri());
+  wp_enqueue_style('style',get_stylesheet_uri());
 }
 
 add_action('wp_enqueue_scripts','styles');
@@ -18,63 +18,64 @@ function create_post_type() {
       'labels' => array(
         'name' => __( 'Services' ),
         'singular_name' => __( 'service' )
-      ),
+        ),
       'public' => true,
       'has_archive' => true,
       'supports' => array('title','editor','thumbnail'),
-    )
-  );
+      )
+    );
 
- register_post_type( 'Contact information',
+  register_post_type( 'Contact information',
     array(
       'labels' => array(
         'name' => __( 'Contact information' ),
         'singular_name' => __( 'contact' )
-      ),
+        ),
       'public' => true,
       'has_archive' => true,
       'supports' => array('title','editor','thumbnail'),
-    )
-  );
+      )
+    );
 
   register_post_type( 'About Us',
     array(
       'labels' => array(
         'name' => __( 'About Us' ),
         'singular_name' => __( 'person' ),
-      ),
+        ),
       'public' => true,
       'has_archive' => true,
       'supports' => array('title','editor','thumbnail'),
 
-    )
-  );
+      )
+    );
 
   register_post_type( 'Gallery',
     array(
       'labels' => array(
         'name' => __( 'Gallery' ),
         'singular_name' => __( 'pic' ),
-      ),
+        ),
       'public' => true,
       'has_archive' => true,
       'supports' => array('title','editor','thumbnail'),
+      'rewrite' => array('slug' => 'gallery'),
 
-    )
-  );
+      )
+    );
 
   register_post_type( 'Slides',
     array(
       'labels' => array(
         'name' => __( 'Slides' ),
         'singular_name' => __( 'slide' ),
-      ),
+        ),
       'public' => true,
       'has_archive' => true,
       'supports' => array('title','editor','thumbnail'),
 
-    )
-  );
+      )
+    );
 
 }
 
@@ -88,8 +89,8 @@ function portfolio_init() {
     array(
       'label' => __( 'Categories' ),
       'hierarchical' => true,
-    )
-  );
+      )
+    );
 }
 add_action( 'init', 'portfolio_init' );
 
@@ -99,8 +100,8 @@ add_action( 'init', 'portfolio_init' );
 function SingoloSetup(){
 	//add menu type
 	register_nav_menus(array(
-	'primary' => __( 'Primary Menu')
-	));
+   'primary' => __( 'Primary Menu')
+   ));
 
 	//add image support
 	add_theme_support('post-thumbnails');
@@ -112,15 +113,15 @@ add_action('after_setup_theme','SingoloSetup');
 function create_table(){
   $table_name=singolo_users;
 
-    $sql = 'CREATE TABLE '.$table_name.'(
-        id INTEGER NOT NULL AUTO_INCREMENT,
-        name VARCHAR(40),
-        email VARCHAR(40),
-        description TEXT,
-       PRIMARY KEY (id))';
+  $sql = 'CREATE TABLE '.$table_name.'(
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    name VARCHAR(40),
+    email VARCHAR(40),
+    description TEXT,
+    PRIMARY KEY (id))';
 
-    require_once(ABSPATH.'wp-admin/includes/upgrade.php');
-   dbDelta($sql);
+require_once(ABSPATH.'wp-admin/includes/upgrade.php');
+dbDelta($sql);
 
 }
 

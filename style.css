@@ -222,7 +222,7 @@ header{
 }
 
 .services .services_description{
-overflow: auto;
+  overflow: auto;
 
 }
 .services .services_description p{
@@ -462,9 +462,9 @@ p{
 .get-a-quote .get-a-quote_contact-information{
 	left:31px;
   vertical-align:top;
-	position: relative;
-	display: inline-block;
-	width:390px;
+  position: relative;
+  display: inline-block;
+  width:390px;
 
 }
 
@@ -521,7 +521,7 @@ p{
 }
 /* @PORTOFOLIO */
 .portofolio{
-  padding: 70px 0px 350px 0px;
+  padding: 70px 0px 200px 0px;
   background-color: #2d303a;
   color:#666d89;
 }
@@ -669,7 +669,7 @@ p{
   line-height: 15px;
   text-align: justify;
 }
-.socia-media{
+.social-media{
   margin-top: 15px;
 }
 .social-media div{
@@ -706,6 +706,45 @@ p{
   float: right;
 }
 
+
+.project h1 {
+  color:  #666d89;
+  font-size: 27px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.project img{
+  width:600px;
+  height: auto;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  border-style: solid;
+  border-width: 15px;
+  border-color: #2d303a;
+}
+
+.project .project_description {
+
+  font-family: Lato;
+  color:  #767e9e;
+  font-weight: 400;
+  line-height: 21.56px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+
+
+
+
+
+
+
+/* @RESPONSIVE */
 @media all and (max-width: 1100px) {
 
 
@@ -715,7 +754,7 @@ p{
 }
 
 
-/* @RESPONSIVE */
+
 @media all and (max-width: 1050px) {
 
 
